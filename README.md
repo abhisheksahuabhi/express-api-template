@@ -42,6 +42,8 @@ Resolve the Conflicts in Package.JSON, gitIgnore and readme.md —> Just accept 
 
 ```
 ├── README.md
+├── .env
+├── .gitignore
 ├── app.js
 ├── node_modules
 ├── package-lock.json
@@ -55,4 +57,4 @@ Resolve the Conflicts in Package.JSON, gitIgnore and readme.md —> Just accept 
     ├── config
     ├── services
     └── util
-    ```
+    
