@@ -7,7 +7,6 @@ This repository is having the base template which has been pulled into all other
 
 3. Peform an npm install by using: 'npm i or npm install'
 
-============================================================================================================================================================================================
 **Steps to Pull this Template in any GTHUB repo***
 
 ### 1. Navigate to the API repository (Directory) where you want to pull express-api Template
@@ -41,6 +40,7 @@ Resolve the Conflicts in Package.JSON, gitIgnore and readme.md —> Just accept 
 
 ## Folder structure for your repo
 
+```
 ├── README.md
 ├── app.js
 ├── node_modules
@@ -55,3 +55,4 @@ Resolve the Conflicts in Package.JSON, gitIgnore and readme.md —> Just accept 
     ├── config
     ├── services
     └── util
+    ```
