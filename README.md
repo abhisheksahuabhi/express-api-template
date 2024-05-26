@@ -13,7 +13,7 @@ This repository is having the base template which has been pulled into all other
 
 ### 2. Create a Branch for new changes and remove old node dependencies
 
-git checkout -b 'feature/newChanges' ###  *You can Create any BranchName Of Your Choice -> Please don't make changes in main/master branch.*
+```git checkout -b 'feature/newChanges'``` ###  *You can Create any BranchName Of Your Choice -> Please don't make changes in main/master branch.*
 
 
 ```rm -rf node_modules package-lock.json```  ### *Removing old Dependencies*
