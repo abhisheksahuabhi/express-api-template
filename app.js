@@ -8,7 +8,7 @@ const app = express();
 const port = process.env.PORT;
 
 //Connection
-connectMongoDb("mongodb://127.0.0.1:27017/youtube-app-1").then(()=>{
+connectMongoDb(process.env.MONGO_URL).then(()=>{
     console.log("MongoDb Connected...");
 }) //url is not correct
 // Middleware - inbult plugin
@@ -17,9 +17,9 @@ app.use(express.urlencoded({extended:false}));
 app.use(logReqRes("log.txt"));
 // app.use(express.json());
 // app.use(compression());
-// app.get('/',(req,res)=>{
-//     res.send('App is executed successfully...')
-// })
+app.get('/',(req,res)=>{
+    res.send('App is executed successfully...')
+})
 
 app.use("/api/user",userRouter);
 app.listen(port, () => {
