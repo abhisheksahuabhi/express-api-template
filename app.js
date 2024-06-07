@@ -12,7 +12,8 @@ connectMongoDb(process.env.MONGO_URL).then(()=>{
     console.log("MongoDb Connected...");
 }) //url is not correct
 // Middleware - inbult plugin
-app.use(express.urlencoded({extended:false}));
+// app.use(express.urlencoded({extended:false})); 
+app.use(express.json())
 //Custom Middleware
 app.use(logReqRes("log.txt"));
 // app.use(express.json());
