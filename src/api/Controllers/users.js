@@ -1,26 +1,33 @@
-const User = require("../Models/users")
+const User = require("../Models/users.js")
 async function registerUser(req, res) {
     const body = req.body;
     if (!body ||
-        !body.attributes.title ||
-        !body.attributes.first_name ||
-        !body.attributes.last_name ||
-        !body.attributes.email ||
-        !body.attributes.password
+        !body.type ||
+        !body.title ||
+        !body.first_name ||
+        !body.last_name ||
+        !body.email ||
+        !body.password
     ) {
-        return res.status(400).json({ error: "Attribute value is empty or null" });
+        return res.status(400).json({ error: "Attribute value is empty " + `${body.type}` });
     }
     const newUser = await User.create({
-        title: body.attributes.title,
-        firstName: body.attributes.first_name,
-        lastName: body.attributes.last_name,
-        email: body.attributes.email,
-        password: body.attributes.password,
+        type: body.type,
+        title: body.title,
+        firstName: body.first_name,
+        lastName: body.last_name,
+        email: body.email,
+        password: body.password,
     })
 
-    return res.status(201).json({ msg: "success",id: newUser._id });
+    return res.status(201).json({ msg: "success", id: newUser._id });
 }
 
+async function getAllUser(req, res){
+    const fetchAllUsers=await User.find({});
+    return res.json(fetchAllUsers);
+}
 module.exports = {
     registerUser,
+    getAllUser,
 }
