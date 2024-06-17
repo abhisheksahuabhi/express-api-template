@@ -1,16 +1,9 @@
 const User = require("../Models/users.js")
+const {handlingErrorMessage} =require('../../utils/usersValidator.js');
 async function registerUser(req, res) {
     const body = req.body;
-    if (!body ||
-        !body.type ||
-        !body.title ||
-        !body.first_name ||
-        !body.last_name ||
-        !body.email ||
-        !body.password
-    ) {
-        return res.status(400).json({ error: "Attribute value is empty " + `${body.type}` });
-    }
+    console.log("body"+body)
+    handlingErrorMessage(req,res,"400");
     const newUser = await User.create({
         type: body.type,
         title: body.title,
@@ -20,7 +13,7 @@ async function registerUser(req, res) {
         password: body.password,
     })
 
-    return res.status(201).json({ msg: "success", id: newUser._id });
+    return res.status(201).json({ msg: "success", id: newUser._id, users: req.body });
 }
 
 async function getAllUser(req, res){
