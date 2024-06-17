@@ -1,9 +1,8 @@
 const User = require("../Models/users.js")
-const {handlingErrorMessage} =require('../../utils/usersValidator.js');
+const {handlingErrorMessage} =require('../Middleware/usersValidator.js');
 async function registerUser(req, res) {
     const body = req.body;
-    console.log("body"+body)
-    handlingErrorMessage(req,res,"400");
+    // handlingErrorMessage(req,res,"400");
     const newUser = await User.create({
         type: body.type,
         title: body.title,
